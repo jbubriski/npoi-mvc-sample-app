@@ -1,0 +1,54 @@
+﻿@model List<NpoiSample.Models.Person>
+@{
+    ViewBag.Title = "NPOI Sample";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["Message"] != null)
+{
+    <p>
+        @TempData["Message"]
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Download XLS file", "DownloadXls")
+</p>
+<p>
+    @Html.ActionLink("Download XLSX file", "DownloadXlsx")
+</p>
+
+<div>
+    @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <p>Upload a file.</p>
+        <input type="file" id="file1" name="files" />
+        <input type="submit" class="btn" value="Upload" />
+    }
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <div>
+        <h3>Uploaded Data</h3>
+
+        <table>
+            <tr>
+                <th>Person ID</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>@person.PersonId</td>
+                    <td>@person.Email</td>
+                    <td>@person.FirstName</td>
+                    <td>@person.LastName</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
