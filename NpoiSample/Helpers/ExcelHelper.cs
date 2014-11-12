@@ -55,8 +55,8 @@ namespace NpoiSample.Helpers
                         {
                             continue;
                         }
-
-                        column.SetValue(item, Convert.ChangeType(val, column.PropertyType), null);
+                        Type t = Nullable.GetUnderlyingType(column.PropertyType) ?? column.PropertyType;
+                        column.SetValue(item, Convert.ChangeType(val, t), null);
 
                         j++;
                     }
@@ -85,8 +85,8 @@ namespace NpoiSample.Helpers
                         {
                             continue;
                         }
-
-                        column.SetValue(item, Convert.ChangeType(val, column.PropertyType), null);
+                        Type t = Nullable.GetUnderlyingType(column.PropertyType) ?? column.PropertyType;
+                        column.SetValue(item, Convert.ChangeType(val, t), null);
 
                         j++;
                     }
