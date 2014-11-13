@@ -49,6 +49,9 @@ namespace NpoiSample.Helpers
 
                     foreach (var column in columns)
                     {
+                        if (j == row.Cells.Count)
+                            break;
+
                         var val = row.GetCell(j).StringCellValue;
 
                         if (string.IsNullOrWhiteSpace(val))
@@ -130,7 +133,12 @@ namespace NpoiSample.Helpers
 
                 foreach (var property in properties)
                 {
-                    row.CreateCell(j).SetCellValue(property.GetValue(item).ToString());
+                    var value = property.GetValue(item);
+
+                    if (value != null)
+                    {
+                        row.CreateCell(j).SetCellValue(value.ToString());
+                    }
 
                     j++;
                 }
@@ -173,7 +181,12 @@ namespace NpoiSample.Helpers
 
                 foreach (var property in properties)
                 {
-                    row.CreateCell(j).SetCellValue(property.GetValue(item).ToString());
+                    var value = property.GetValue(item);
+
+                    if (value != null)
+                    {
+                        row.CreateCell(j).SetCellValue(value.ToString());
+                    }
 
                     j++;
                 }

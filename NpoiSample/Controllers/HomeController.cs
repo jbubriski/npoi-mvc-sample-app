@@ -29,7 +29,7 @@ namespace NpoiSample.Controllers
             try
             {
                 // Only export 3 columns
-                var properties = excelHelper.GetProperties(typeof(Person), new string[] { "PersonId", "FirstName", "LastName" });
+                var properties = excelHelper.GetProperties(typeof(Person), new string[] { "PersonId", "FirstName", "LastName", "Age" });
 
                 var workbook = excelHelper.CreateXls<Person>(people, properties);
 
@@ -57,7 +57,7 @@ namespace NpoiSample.Controllers
             try
             {
                 // Only export 3 columns
-                var properties = excelHelper.GetProperties(typeof(Person), new string[] { "PersonId", "FirstName", "LastName" });
+                var properties = excelHelper.GetProperties(typeof(Person), new string[] { "PersonId", "FirstName", "LastName", "Age" });
 
                 var workbook = excelHelper.CreateXlsx<Person>(people, properties);
 
@@ -87,7 +87,7 @@ namespace NpoiSample.Controllers
 
             try
             {
-                var properties = excelHelper.GetProperties(typeof(Person), new[] { "PersonId", "FirstName", "LastName" });
+                var properties = excelHelper.GetProperties(typeof(Person), new[] { "PersonId", "FirstName", "LastName", "Age" });
 
                 foreach (var file in files)
                 {

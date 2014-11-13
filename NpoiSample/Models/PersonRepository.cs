@@ -30,14 +30,16 @@ namespace NpoiSample.Models
                     PersonId = 3,
                     Email = "person3@example.com",
                     FirstName = "PersonThree",
-                    LastName = "Three"
+                    LastName = "Three",
+                    Age = 5
                 },
                 new Person
                 {
                     PersonId = 4,
-                    Email = "person4@example.com",
+                    Email = null,
                     FirstName = "PersonFour",
-                    LastName = "Four"
+                    LastName = "Four",
+                    Age = 7
                 },
             };
         }
